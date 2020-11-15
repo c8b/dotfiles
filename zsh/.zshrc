@@ -148,7 +148,7 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 
 # Echo a note to this file
-alias note2self="/home/cthucl/notes/IMMA_OWN_THIS_COMPUTER.md"
+alias note2self="vim ~/notes/IMMA_OWN_THIS_COMPUTER.md"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
