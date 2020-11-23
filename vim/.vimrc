@@ -21,6 +21,9 @@ filetype indent plugin on
 " Syntax highlighting
 syntax on 
 
+" Syntax highlighting for odd extensions
+autocmd BufNewFile,BufRead *.prolog set syntax=prolog
+
 " Colour
 " Set cool color
 colorscheme industry
