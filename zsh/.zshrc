@@ -22,6 +22,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # For python stuff
 export PATH=$PATH:$HOME/.local/bin
 
+# For php composer stuff
+export PATH=$PATH:$HOME/.config/composer/vendor/bin
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/cthucl/.oh-my-zsh
 
@@ -88,7 +91,8 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 #
 # Consider changing plugins for every computer.
-plugins=(git archlinux z vi-mode)
+plugins=(git archlinux z vi-mode laravel)
+# plugins=(git)
 
 # User configuration
 
@@ -121,23 +125,30 @@ man() {
     command man "$@"
 }
 
+# Test shell load time
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do time $shell -i -c exit; done
+}
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim  $ZSH/oh-my-zsh.sh"
-alias la="ls -al"
-alias hibernate="systemctl hibernate"
-alias netstop="sudo netctl stop-all"
-alias netstart="sudo netctl start"
-alias netrestart="sudo netctl stop-all; sudo netctl start"
-alias sshyu="ssh chungcl@red2.eecs.yorku.ca"
-alias sshfsyu="sshfs chungcl@red2.eecs.yorku.ca:/eecs/home/chungcl sshfs-mnt"
+alias zshconfig='vim ~/.zshrc'
+alias ohmyzsh='vim  $ZSH/oh-my-zsh.sh'
+alias la='ls -al'
+alias hibernate='systemctl hibernate'
+alias netstop='sudo netctl stop-all'
+alias netstart='sudo netctl start'
+alias netrestart='sudo netctl stop-all; sudo netctl start'
+alias sshyu='ssh chungcl@red2.eecs.yorku.ca'
+alias sshfsyu='sshfs chungcl@red2.eecs.yorku.ca:/eecs/home/chungcl sshfs-mnt'
+alias df='df -h'
 
 # Don't load user stylesheets
-alias surf="surf -m"
+alias surf='surf -m'
 
 # Exported variables
 export ISE_EIFFEL=/usr/local/Eiffel_19.05
@@ -150,11 +161,13 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 
 # Echo a note to this file
-alias note2self="vim ~/notes/IMMA_OWN_THIS_COMPUTER.md"
+alias note2self='vim ~/notes/IMMA_OWN_THIS_COMPUTER.md'
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
+
+source /usr/share/nvm/init-nvm.sh
 
 source $ZSH/oh-my-zsh.sh
