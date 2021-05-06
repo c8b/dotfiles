@@ -189,7 +189,7 @@ endif
 " installing plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'drmikehenry/vim-fontsize'
+Plug 'takac/vim-hardtime'
 
 " Something from the example. Supposed to be a good vim starting point.
 Plug 'tpope/vim-sensible'
@@ -220,18 +220,12 @@ if has('nvim')
 endif
 
 
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" IMPORTANT: :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
-
 " NOTE: you need to install completion sources to get completions. Check
 " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 
-Plug 'phpactor/phpactor'
+Plug 'phpactor/phpactor',  {'do': 'composer install', 'for': 'php'}
 Plug 'phpactor/ncm2-phpactor'
 
 " Search/replacing plugins
@@ -261,6 +255,9 @@ Plug 'joonty/vdebug'
 " PHPDoc plugin
 Plug 'tobyS/vmustache'
 Plug 'tobyS/pdv'
+
+"HTTP requests
+Plug  'nicwest/vim-http' 
 
 call plug#end()
 
@@ -295,6 +292,12 @@ autocmd VimEnter * command! -nargs=* Rg
   \   <bang>0)
 
 " ncm2 options
+
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
 
 " supress the annoying 'match x of y', 'The only match' and 'Pattern not
 " found' messages
@@ -332,3 +335,4 @@ au User Ncm2Plugin call ncm2#register_source({
         \ 'complete_pattern': ':\s*',
         \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
         \ })
+

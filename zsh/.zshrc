@@ -29,7 +29,7 @@ export PATH=$PATH:$HOME/.config/composer/vendor/bin
 export ZSH=/home/cthucl/.oh-my-zsh
 
 # making vim more popular
-export VISUAL="vim"
+export VISUAL="nvim"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -162,6 +162,14 @@ alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 
 # Echo a note to this file
 alias note2self='vim ~/notes/IMMA_OWN_THIS_COMPUTER.md'
+
+# Force powersaving mode to restart monitor
+alias sdf='xset dpms force off'
+
+# Make things easier
+alias vim='nvim'
+alias vi='nvim'
+alias v='nvim'
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
