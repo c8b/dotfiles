@@ -5,6 +5,7 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
+source ~/dotfiles/nvim/plugins.vim
 
 "let g:hardtime_default_on = 1
 "let g:UltiSnipsSnippetDirectories=['~/.vim/plugged/ultisnips', '~/.vim/plugged/vim-snippets']
